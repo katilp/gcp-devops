@@ -1,5 +1,5 @@
 steps:
-- name: 'docker'
+- name: 'docker' 
   args: ['build','-t','us-central1-docker.pkg.dev/$PROJECT_ID/gcpdevops','.']
 images:
 - 'us-central1-docker.pkg.dev/$PROJECT_ID/gcpdevops'
