@@ -3,7 +3,7 @@ steps:
   args: ['build','-t','us-central1-docker.pkg.dev/$PROJECT_ID/gcpdevops/img','.']
 - name: 'docker'
   args: ['push','us-central1-docker.pkg.dev/$PROJECT_ID/gcpdevops/img']
-- name: 'gke-deploy'
+- name: 'gcr.io/cloud-builders/gke-deploy'
   args:
   - run
   - --filename=gke.yaml
