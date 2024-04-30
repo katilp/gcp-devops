@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: gcp-devops-gke
+  name: gcp-devops-gke
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gcp-devops-gke
+  template:
+    metadata:
+      labels:
+        app: gcp-devops-gke
+    spec:
+      containers:
+      - image: us-central1-docker.pkg.dev/tutorials-403317/img
+        name: img
+        ports:
+        - containerPort: 5000
