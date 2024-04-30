@@ -1,5 +1,13 @@
 steps:
 - name: 'docker' 
   args: ['build','-t','us-central1-docker.pkg.dev/$PROJECT_ID/gcpdevops/img','.']
-images:
-- 'us-central1-docker.pkg.dev/$PROJECT_ID/gcpdevops/img'
+- name: 'docker'
+  args: ['push','us-central1-docker.pkg.dev/$PROJECT_ID/gcpdevops/img']
+- name: 'gke-deploy'
+  args:
+  - run
+  - --filename=gke.yaml
+  - --image=us-central1-docker.pkg.dev/$PROJECT_ID/gcpdevops/img
+  - --location=us-central1-c
+  - --cluster=gke-devops
+  - --namespace=gcp-devops-prod
