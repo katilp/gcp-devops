@@ -1,0 +1,5 @@
+step:
+- name: 'docker'
+  args: ['build','-t','grc.io/$PROJECT_ID/gcpdevops','.']
+images:
+- 'grc.io/$PROJECT_ID/gcpdevops'
