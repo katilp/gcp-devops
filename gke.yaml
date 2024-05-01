@@ -15,7 +15,7 @@ spec:
         app: gcp-devops-gke
     spec:
       containers:
-      - image: us-central1-docker.pkg.dev/tutorials-403317/gcpdevops/img
+      - image: us-central1-docker.pkg.dev/tutorials-403317/gcpdevops-dev/img
         name: img
         ports:
         - containerPort: 5000
@@ -27,7 +27,6 @@ metadata:
     app: gcp-devops-gke
     app.kubernetes.io/managed-by: gcp-cloud-build-deploy
   name: gcp-devops-gke
-  namespace: gcp-devops-prod
 spec:
   ports:
   - port: 80
