@@ -19,3 +19,20 @@ spec:
         name: img
         ports:
         - containerPort: 5000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: gcp-devops-gke
+    app.kubernetes.io/managed-by: gcp-cloud-build-deploy
+  name: gcp-devops-gke
+  namespace: gcp-devops-prod
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 5000
+  selector:
+    app: gcp-devops-gke
+  type: "LoadBalancer"
