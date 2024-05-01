@@ -3,7 +3,10 @@
 A basic example to deploy a "Hello, world" Flask app to a GKE cluster.
 
 Requires:
-- a GCP project with billing activated
+- a GCP project with
+  - billing activated
+  - GKE API enabled
+  - Cloud Build API enabled
 - a GKE cluster (tested with a 3-node standard GKE cluster) with separate namespaces for production (main) and development branches
 - GCP artifact repositories for production (main) and development branches
 - Cloud Build triggers connected to this repository using cloudbuild.yaml for both branches
@@ -15,3 +18,8 @@ Uses
 - cloudbuild.yaml to build the container image and push it to the GCP artifact repository
 - gke.yaml to deploy the app and expose the service
 
+Note: to access the cluster, Cloud Build may require adding:
+
+```
+gcloud projects add-iam-policy-binding <project-name> --member=serviceAccount:<service-account-number>@cloudbuild.gserviceaccount.com --role=roles/container.developer
+```
