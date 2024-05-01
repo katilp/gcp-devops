@@ -15,7 +15,7 @@ spec:
         app: gcp-devops-gke
     spec:
       containers:
-      - image: us-central1-docker.pkg.dev/tutorials-403317/img
+      - image: us-central1-docker.pkg.dev/tutorials-403317/gcpdevops/img
         name: img
         ports:
         - containerPort: 5000
